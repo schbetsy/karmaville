@@ -10,3 +10,11 @@
     <%= render 'user_row', :user => user %>
   <% end %>
 </table>
+
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <% @pages.each do |page| %>
+    <li><a href="?page=<%= page %>"><%= page %></a></li>
+  <% end %>
+  <li><a href="#">&raquo;</a></li>
+</ul>

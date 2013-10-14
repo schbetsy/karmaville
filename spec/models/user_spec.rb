@@ -48,4 +48,18 @@ describe User do
       user.full_name.should eq 'John Doe'
     end
   end
+
+  describe '.page' do
+    before do
+      55.times do |i|
+        create(:user_with_karma, total: i)
+      end
+    end
+
+    it 'returns the top 50 users by karma' do
+      expect (User.page(1)).to eq User.order('total_points DESC').limit(50)
+    end
+
+  end
+
 end
